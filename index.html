@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nosso Amor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #87cefa;
+            padding: 20px;
+        }
+        h1 {
+            color: #008080;
+        }
+        #timer {
+            font-size: 1.5em;
+            color: #008b8b;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 15px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Estamos juntos ha:</h1>
+    <div id="timer"></div>
+    <h2>Eu te amo meu denguinho!</h2>
+    <img src="https://i.imgur.com/2XBCIhR.jpg" alt="Nossa foto">
+    <script>
+    const startDate = new Date("2022-10-11T20:00:00"); // Replace with the date of your relationship
+
+    function updateTimer() {
+        const now = new Date();
+        const diff = now - startDate;
+
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+        const minutes = Math.floor((diff / (1000 * 60)) % 60);
+        const seconds = Math.floor((diff / 1000) % 60);
+
+        // Updates the countdown text in real-time
+        document.getElementById("timer").textContent =
+            `${days} days, ${hours} hours, ${minutes} minutes, and ${seconds} seconds`;
+    }
+
+    // Updates the timer every second
+    setInterval(updateTimer, 1000);
+    updateTimer(); // Executes immediately to avoid initial delay
+</script>
+</body>
+</html>
